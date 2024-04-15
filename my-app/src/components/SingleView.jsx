@@ -1,20 +1,34 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
+import Button from "./UI/Button.jsx";
 
-const SingleView = props => {
-  const {selectedItem, setSelectedItem} = props;
+const SingleView = (props) => {
+  const { selectedItem, setSelectedItem } = props;
   const handleClick = () => setSelectedItem(null);
   return (
-    <dialog open={selectedItem ? true : false}>
+    <dialog
+      className={
+        "fixed top-0 h-dvh w-dvw bg-black bg-opacity-50 text-stone-100 "
+      }
+      open={selectedItem ? true : false}
+    >
       <p>
-        <button onClick={handleClick}>Close</button>
+        <Button text={"Close"} handleClick={handleClick} />
       </p>
       {selectedItem && (
         <>
-          {selectedItem.media_type.includes('video') ? (
-            <video controls>
-              <source src={selectedItem.filename} type={selectedItem.media_type}/>
-            </video>) : (
-            <img src={selectedItem.filename} alt={selectedItem.title}/>
+          {selectedItem.media_type.includes("video") ? (
+            <video className={"h-3/4 m-auto"} controls>
+              <source
+                src={selectedItem.filename}
+                type={selectedItem.media_type}
+              />
+            </video>
+          ) : (
+            <img
+              className={"h-3/4 m-auto"}
+              src={selectedItem.filename}
+              alt={selectedItem.title}
+            />
           )}
           <h2>{selectedItem.title}</h2>
           <p>{selectedItem.description}</p>
