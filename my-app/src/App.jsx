@@ -1,6 +1,6 @@
 import Home from "./components/Home";
 import "./App.css";
-import { Route, BrowserRouter as Router, Routes, Link } from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Profile from "./views/Profile.jsx";
 import Upload from "./views/Upload.jsx";
 import Layout from "./components/Layout.jsx";
@@ -8,7 +8,7 @@ import Single from "./views/Single.jsx";
 const App = () => {
   return (
     <>
-      <Router>
+      <Router basename={import.meta.env.BASE_URL}>
         <h1>My App</h1>
         <Routes>
           <Route path="/" element={<Layout />}>

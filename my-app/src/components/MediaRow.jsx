@@ -1,10 +1,8 @@
 import PropTypes from "prop-types";
-import Button from "./UI/Button";
 import { Link } from "react-router-dom";
 
 const MediaRow = (props) => {
-  const { item, setSelectedItem } = props;
-  const handleClick = () => setSelectedItem(item);
+  const { item } = props;
   return (
     <tr>
       <td>
@@ -26,7 +24,6 @@ const MediaRow = (props) => {
 
 MediaRow.propTypes = {
   item: PropTypes.object.isRequired,
-  setSelectedItem: PropTypes.func.isRequired,
 };
 
 export default MediaRow;

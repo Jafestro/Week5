@@ -1,6 +1,4 @@
-import React from "react";
-
-const Profile = (props) => {
+const Profile = () => {
   return <div>This is the profile page.</div>;
 };
 
