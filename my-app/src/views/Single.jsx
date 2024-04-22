@@ -32,6 +32,7 @@ const Single = () => {
           )}
           <h2>{item.title}</h2>
           <p>{item.description}</p>
+          <p>{item.username}</p>
           <p>{new Date(item.created_at).toLocaleString()}</p>
           <p>{item.filesize}</p>
         </>

@@ -7,8 +7,21 @@ const Home = () => {
   const [mediaArray, setMediaArray] = useState([]);
 
   const getMedia = async () => {
-    const mediaResult = await fetchData("test.json");
-    setMediaArray(mediaResult);
+    const mediaResult = await fetchData(
+      import.meta.env.VITE_MEDIA_API + "/media",
+    );
+
+    const mediaWithUser = await Promise.all(
+      mediaResult.map(async (mediaItem) => {
+        const userResult = await fetchData(
+          import.meta.env.VITE_AUTH_API + "/users/" + mediaItem.user_id,
+        );
+        return { ...mediaItem, username: userResult.username };
+      }),
+    );
+
+    console.log(mediaWithUser);
+    setMediaArray(mediaWithUser);
   };
 
   useEffect(() => {
@@ -23,6 +36,7 @@ const Home = () => {
         <thead>
           <tr>
             <th>Thumbnail</th>
+            <th>Username</th>
             <th>Title</th>
             <th>Description</th>
             <th>Created</th>

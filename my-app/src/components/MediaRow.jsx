@@ -8,6 +8,7 @@ const MediaRow = (props) => {
       <td>
         <img src={item.thumbnail} alt={item.title} />
       </td>
+      <td>{item.username}</td>
       <td>{item.title}</td>
       <td>{item.description}</td>
       <td>{new Date(item.created_at).toLocaleString()}</td>
@@ -15,7 +16,7 @@ const MediaRow = (props) => {
       <td>{item.media_type}</td>
       <td>
         <Link to={`/media/${item.media_id}`} state={{ item }}>
-          View Link
+          View
         </Link>
       </td>
     </tr>

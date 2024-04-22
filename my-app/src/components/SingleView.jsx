@@ -32,6 +32,7 @@ const SingleView = (props) => {
           )}
           <h2>{selectedItem.title}</h2>
           <p>{selectedItem.description}</p>
+          <p>{selectedItem.username}</p>
           <p>{new Date(selectedItem.created_at).toLocaleString()}</p>
           <p>{selectedItem.filesize}</p>
         </>
