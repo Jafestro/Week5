@@ -8,6 +8,7 @@ const Layout = () => {
           <Link to="/">Etusivu 🏠</Link>
           <Link to="/profile">Profile 🦩️(～￣▽￣)～</Link>
           <Link to="/upload">Upload 🌱</Link>
+          <Link to="/login">Login 🚪</Link>
         </nav>
       </header>
 

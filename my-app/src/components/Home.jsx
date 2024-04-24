@@ -1,5 +1,5 @@
 import MediaRow from "./MediaRow.jsx";
-import { useMedia } from "../hooks/ApiHooks.js";
+import { useMedia } from "../hooks/apiHooks.js";
 
 const Home = () => {
   // const [selectedItem, setSelectedItem] = useState(null);
