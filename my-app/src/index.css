@@ -44,6 +44,8 @@ nav a {
 
 nav a:hover {
   background-color: #111111;
+  font-size: large;
+  animation: ease-in-out;
 }
 
 /* media item card */

@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useUser } from "../hooks/apiHooks.js";
+import { useUserContext } from "../contexts/UserContext.jsx";
+import UserData from "../components/UserData.jsx";
 
 const Profile = () => {
-  const [user, setUser] = useState(null);
+  const { user, setUser } = useUserContext(null);
   const { getUserByToken } = useUser();
 
   const getUser = async () => {
@@ -23,13 +25,7 @@ const Profile = () => {
     <>
       This is the profile page.
       <div>
-        {user && (
-          <>
-            <p>Käyttäjätunnus: {user.username}</p>
-            <p>email: {user.email}</p>
-            <p>luotu: {new Date(user.created_at).toLocaleString()}</p>
-          </>
-        )}
+        <UserData />
       </div>
     </>
   );

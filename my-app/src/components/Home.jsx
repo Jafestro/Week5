@@ -1,5 +1,6 @@
 import MediaRow from "./MediaRow.jsx";
 import { useMedia } from "../hooks/apiHooks.js";
+import UserData from "./UserData.jsx";
 
 const Home = () => {
   // const [selectedItem, setSelectedItem] = useState(null);
@@ -8,6 +9,7 @@ const Home = () => {
 
   return (
     <>
+      <UserData />
       <h2>My Media</h2>
       <table>
         <thead>

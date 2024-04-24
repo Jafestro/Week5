@@ -1,18 +1,26 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import SiteNavigation from "./UI/SiteNavigation.jsx";
+import { useUserContext } from "../contexts/UserContext.jsx";
+import { useEffect } from "react";
 
 const Layout = () => {
+  const { handleAutoLogin } = useUserContext();
+
+  useEffect(() => {
+    handleAutoLogin();
+    console.log("hello there");
+  }, []);
   return (
     <div>
-      <header>
-        <nav>
-          <Link to="/">Etusivu 🏠</Link>
-          <Link to="/profile">Profile 🦩️(～￣▽￣)～</Link>
-          <Link to="/upload">Upload 🌱</Link>
-          <Link to="/login">Login 🚪</Link>
-        </nav>
+      <br />
+      <br />
+      <header className={"bg-amber-500"}>
+        <p className={"text-5xl p-10 "}>☆*: .｡. o(≧▽≦)o .｡.:*☆</p>
+        <SiteNavigation />
       </header>
-
-      <main>
+      <br />
+      <br />
+      <main className={"bg-amber-300"}>
         <Outlet />
       </main>
       <footer>Copyright 2024</footer>
