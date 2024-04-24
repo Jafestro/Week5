@@ -1,12 +1,14 @@
 // Upload.jsx
 import { useState } from "react";
 import { postFile, useMedia } from "../hooks/apiHooks.js";
+import { useNavigate } from "react-router-dom";
 
 const Upload = () => {
   const [file, setFile] = useState(null);
   const [inputs, setInputs] = useState();
   const token = localStorage.getItem("token");
   const { postMedia } = useMedia();
+  const navigate = useNavigate();
 
   const doUpload = async () => {
     try {
@@ -14,7 +16,7 @@ const Upload = () => {
       console.log("upload result", uploadResult);
       const postMediaResult = await postMedia(uploadResult, inputs, token);
       console.log("postMediaResult", postMediaResult);
-      // TODO: redirect to Home
+      navigate("/");
     } catch (e) {
       console.log(e.message);
     }
