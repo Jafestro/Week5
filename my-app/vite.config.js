@@ -7,5 +7,5 @@ export default defineConfig({
   server: {
     port: 3000, // Change this to your preferred port number
   },
-  base: "/~jafarj/wsk/wsk-context/",
+  base: "/~jafarj/wsk/wsk-upload/",
 });

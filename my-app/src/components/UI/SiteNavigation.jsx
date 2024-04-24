@@ -6,22 +6,20 @@ const SiteNavigation = () => {
   return (
     <nav className={"flex justify-evenly font-bold font-sans"}>
       <Link to="/">Etusivu 🏠</Link>
-      {user !== undefined && (
+      {user ? (
         <>
           <Link to="/profile">Profile 🦩️(～￣▽￣)～</Link>
           <Link to="/upload">Upload 🌱</Link>
+          <Link
+            to="/login"
+            onClick={() => {
+              console.log("Logout");
+              handleLogout();
+            }}
+          >
+            Logout 🔓
+          </Link>
         </>
-      )}
-      {user ? (
-        <Link
-          to="/login"
-          onClick={() => {
-            console.log("Logout");
-            handleLogout();
-          }}
-        >
-          Logout 🔓
-        </Link>
       ) : (
         <Link to="/login">Login 🚪</Link>
       )}

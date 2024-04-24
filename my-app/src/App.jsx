@@ -2,7 +2,7 @@ import Home from "./components/Home";
 import "./App.css";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Profile from "./views/Profile.jsx";
-import Upload from "./views/Upload.jsx";
+import Upload from "./components/Upload.jsx";
 import Layout from "./components/Layout.jsx";
 import Single from "./views/Single.jsx";
 import Login from "./components/Login.jsx";
