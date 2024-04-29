@@ -5,7 +5,7 @@ import UserData from "./UserData.jsx";
 const Home = () => {
   // const [selectedItem, setSelectedItem] = useState(null);
   // const mediaArray = useMedia().mediaArray; or like that
-  const { mediaArray } = useMedia();
+  const { mediaArray, deleteMedia } = useMedia();
 
   return (
     <>
@@ -30,6 +30,7 @@ const Home = () => {
               key={item.media_id}
               item={item}
               // setSelectedItem={setSelectedItem}
+              deleteMedia={deleteMedia}
             />
           ))}
         </tbody>

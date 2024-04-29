@@ -42,7 +42,20 @@ const useMedia = () => {
     return result;
   };
 
-  return { mediaArray, postMedia };
+  const deleteMedia = async (id, token) => {
+    const options = {
+      method: "DELETE",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    };
+    return await fetchData(
+      import.meta.env.VITE_MEDIA_API + "/media/" + id,
+      options,
+    );
+  };
+
+  return { mediaArray, postMedia, deleteMedia };
 };
 
 const useUser = () => {

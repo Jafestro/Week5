@@ -1,8 +1,19 @@
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Button from "./UI/Button.jsx";
 
-const MediaRow = (props) => {
-  const { item } = props;
+const MediaRow = ({ item, deleteMedia }) => {
+  const navigate = useNavigate();
+
+  const handleDelete = async () => {
+    const sure = confirm("Are you sure?");
+    if (!sure) return;
+    const token = localStorage.getItem("token");
+    const deleteResult = await deleteMedia(item.media_id, token);
+    console.log("deleteResult", deleteResult);
+    navigate(0);
+  };
+
   return (
     <tr>
       <td>
@@ -18,6 +29,14 @@ const MediaRow = (props) => {
         <Link to={`/media/${item.media_id}`} state={{ item }}>
           View
         </Link>
+        <br />
+        <br />
+        <Button text={"Edit"} />
+        <Button
+          text={"Delete"}
+          onClick={handleDelete}
+          className={"bg-red-500"}
+        />
       </td>
     </tr>
   );
@@ -25,6 +44,7 @@ const MediaRow = (props) => {
 
 MediaRow.propTypes = {
   item: PropTypes.object.isRequired,
+  deleteMedia: PropTypes.func.isRequired,
 };
 
 export default MediaRow;
